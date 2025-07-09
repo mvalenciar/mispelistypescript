@@ -85,7 +85,13 @@ header .logo .logo__title {
     align-items: center;
     justify-content: center;
     list-style: none;
-    gap: 20px;
+    gap: 5rem;
+}
+
+@media screen and (width <=420px) {
+    .menu .menu__list {
+        gap: 2rem;
+    }
 }
 
 .menu .menu__list .menu__item {
