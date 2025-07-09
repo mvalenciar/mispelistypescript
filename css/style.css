@@ -1,8 +1,25 @@
+/* estilos generales*/
+
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/*Estilos de la cabecera y el logo*/
 header {
     width: 100%;
+    height: 80px;
 }
 
 header .logo {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,4 +60,54 @@ header .logo .logo__circle .logo__triangle {
 
 header .logo .logo__title {
     font-style: italic;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+/*Estilos del menú*/
+
+.menu {
+    width: 100%;
+    height: 50px;
+    background: #070063;
+    background: linear-gradient(
+        90deg,
+        rgba(7, 0, 99, 1) 0%,
+        rgba(9, 9, 121, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+
+.menu .menu__list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu .menu__list .menu__item {
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+}
+
+.menu .menu__list .menu__item .menu__link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu .menu__list .menu__item .menu__link:hover {
+    text-decoration: underline;
+}
+
+.menu .menu__list .menu__item:hover {
+    scale: 1.2;
 }
