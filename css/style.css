@@ -11,11 +11,25 @@
 html {
     font-size: 62.5%;
 }
+/*Estilos Grid Layout*/
+
+body {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-areas:
+        'header header'
+        'menu menu'
+        'main aside'
+        'footer footer';
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 3fr 1fr;
+}
 
 /*Estilos de la cabecera y el logo*/
 header {
     width: 100%;
     height: 80px;
+    grid-area: header;
 }
 
 header .logo {
@@ -67,6 +81,7 @@ header .logo .logo__title {
 /*Estilos del menú*/
 
 .menu {
+    grid-area: menu;
     width: 100%;
     height: 50px;
     background: #070063;
@@ -116,4 +131,161 @@ header .logo .logo__title {
 
 .menu .menu__list .menu__item:hover {
     scale: 1.2;
+}
+
+main {
+    grid-area: main;
+    align-items: center;
+    justify-content: center;
+}
+
+main .movies {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+
+main .movies .movie {
+    width: 18rem;
+    height: 20rem;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow: 0px 0px 10px lightgrey;
+    border: none;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+main .movies .movie h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+main .movies .movie a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+main .movies .movie a:hover {
+    text-decoration: underline;
+}
+
+main .movies .movie .movie__buttons button {
+    width: 70px;
+    height: 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #0299d8;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+
+main .movies .movie .movie__buttons button:active {
+    scale: 0.95;
+}
+
+aside {
+    border: solid 1px black;
+    grid-area: aside;
+}
+
+aside .aside__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1.5rem;
+}
+
+aside .aside__content .aside__content__search,
+aside .aside__content .aside__content__form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 5px grey;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+aside .aside__content h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+aside .aside__content input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    box-shadow: 0px 0px 3px grey;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+aside .aside__content button {
+    width: 70px;
+    height: 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background: #070063;
+    background: linear-gradient(
+        90deg,
+        rgba(7, 0, 99, 1) 0%,
+        rgba(9, 9, 121, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
+    cursor: pointer;
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+footer {
+    height: 80px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: footer;
 }
