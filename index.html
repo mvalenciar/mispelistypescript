@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>PelisTypeScript</title>
         <link rel="stylesheet" href="./css/style.css" />
+        <script src="dist/main.js" type="module"></script>
     </head>
     <body>
         <header>
@@ -115,16 +116,16 @@
                     <h3>Añadir Película</h3>
                     <input
                         type="text"
-                        name="name"
-                        id="name"
+                        name="movieTitle"
+                        id="movieTitle"
                         placeholder="Nombre de película"
                     />
                     <textarea
-                        name="description"
-                        id="description"
+                        name="movieDescription"
+                        id="movieDescription"
                         placeholder="Descripción de la película"
                     ></textarea>
-                    <button type="button">Guardar</button>
+                    <button type="button" id="btnSave">Guardar</button>
                 </div>
             </div>
         </aside>
