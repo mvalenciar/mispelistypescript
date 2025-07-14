@@ -1,7 +1,9 @@
 import Storage from './storage.js';
+import ListMovies from './listmovies.js';
 export default class Add {
     constructor() {
         this.myStorage = new Storage();
+        this.articleMovie = new ListMovies();
         //Conseguir elementos del DOM
         this.movieTitle = document.querySelector('#movieTitle');
         this.movieDescription = document.querySelector('#movieDescription');
@@ -22,6 +24,7 @@ export default class Add {
                     this.myStorage.lastId();
                     this.myStorage.setMovies(movie);
                     this.myStorage.saveStorage();
+                    this.articleMovie.movieTemplate(movie);
                     alert('Película guardada correctamente');
                 }
             });

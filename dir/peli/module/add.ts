@@ -1,5 +1,6 @@
 import Storage from './storage.js';
 import { Movie } from './types.js';
+import ListMovies from './listmovies.js';
 
 export default class Add {
     //Atributos
@@ -7,6 +8,8 @@ export default class Add {
     private movieDescription: HTMLTextAreaElement | null;
     private btnSave: HTMLButtonElement | null;
     private myStorage: Storage = new Storage();
+    private articleMovie: ListMovies = new ListMovies();
+
     constructor() {
         //Conseguir elementos del DOM
         this.movieTitle = document.querySelector('#movieTitle');
@@ -35,6 +38,7 @@ export default class Add {
                     this.myStorage.setMovies(movie);
 
                     this.myStorage.saveStorage();
+                    this.articleMovie.movieTemplate(movie);
 
                     alert('Película guardada correctamente');
                 }
