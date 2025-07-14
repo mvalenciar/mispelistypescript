@@ -1,7 +1,6 @@
 import Storage from './storage.js';
 export default class Add {
     constructor() {
-        this.movieId = 0;
         this.myStorage = new Storage();
         //Conseguir elementos del DOM
         this.movieTitle = document.querySelector('#movieTitle');

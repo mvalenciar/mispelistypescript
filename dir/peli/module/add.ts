@@ -1,11 +1,11 @@
 import Storage from './storage.js';
+import { Movie } from './types.js';
 
 export default class Add {
     //Atributos
     private movieTitle: HTMLInputElement | null;
     private movieDescription: HTMLTextAreaElement | null;
     private btnSave: HTMLButtonElement | null;
-    private movieId: number = 0;
     private myStorage: Storage = new Storage();
     constructor() {
         //Conseguir elementos del DOM
@@ -24,11 +24,7 @@ export default class Add {
                     const title = this.movieTitle.value;
                     const description = this.movieDescription.value;
 
-                    const movie: {
-                        id: number;
-                        title: string;
-                        description: string;
-                    } = {
+                    const movie: Movie = {
                         id: this.myStorage.lastId(),
                         title: title,
                         description: description,

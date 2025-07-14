@@ -1,9 +1,7 @@
+import { Movie } from './types.js';
+
 export default class Storage {
-    private movies: {
-        id: number;
-        title: string;
-        description: string;
-    }[];
+    private movies: Movie[];
 
     private dataStorage: () => string = (): string => {
         return localStorage.getItem('movies') as string;
@@ -17,15 +15,11 @@ export default class Storage {
         }
     }
 
-    setMovies(value: { id: number; title: string; description: string }) {
+    setMovies(value: Movie) {
         this.movies.push(value);
     }
 
-    getMovies(): {
-        id: number;
-        title: string;
-        description: string;
-    }[] {
+    getMovies(): Movie[] {
         return this.movies;
     }
 
