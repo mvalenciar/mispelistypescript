@@ -1,7 +1,6 @@
-import App from './peli/app.js';
+import APP from './peli/app.js';
 
-//crear el objeto App
-const movieApp = new App();
+//Instancia App
+const appModule = new APP();
 
-//Cargar la aplicación
-movieApp.load();
+appModule.load();

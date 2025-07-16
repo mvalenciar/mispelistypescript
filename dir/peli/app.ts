@@ -1,24 +1,20 @@
+import Storage from './module/storage.js';
 import Add from './module/add.js';
-import ListMovies from './module/listmovies.js';
 
-export default class App {
+export default class APP {
+    private storageModule: Storage;
     private addModule: Add;
-    private listModule: ListMovies;
 
     constructor() {
+        this.storageModule = new Storage();
         this.addModule = new Add();
-        this.listModule = new ListMovies();
     }
 
-    load() {
-        //Añadir película
-        this.addModule.movieSave();
+    load(): void {
+        //Guardar Películas
 
-        //Listar películas
-        this.listModule.printAllMovies();
+        //Listar Películas
 
-        //Buscar películas
-
-        console.log('La aplicación de películas ha sido inicializada...');
+        console.log('Inicio aplicación películas');
     }
 }

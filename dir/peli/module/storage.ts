@@ -1,39 +1,33 @@
-import { Movie } from './types.js';
+import { Movie } from './types';
 
 export default class Storage {
+    //Variable que almacenara los datos de las películas
     private movies: Movie[];
 
-    private dataStorage: () => string = (): string => {
-        return localStorage.getItem('movies') as string;
-    };
-
     constructor() {
-        if (this.dataStorage()) {
-            this.movies = JSON.parse(this.dataStorage());
+        //Inicializando variables
+        if (localStorage.getItem('movies') != null) {
+            this.movies = JSON.parse(localStorage.getItem('movies') as string);
         } else {
             this.movies = [];
         }
+        console.log(this.movies);
     }
 
-    setMovies(value: Movie) {
-        this.movies.push(value);
+    //Guardar películas en el storage
+    addStorage(movies: Movie[]): void {
+        //Convirtiendo datos en formato JSON
+        let json_movies: string = JSON.stringify(movies);
+
+        //Almacenando información al storage
+        localStorage.setItem('movies', json_movies);
     }
 
-    getMovies(): Movie[] {
-        return this.movies;
-    }
-
-    lastId(): number {
-        if (this.dataStorage()) {
-            return this.movies[this.movies.length - 1].id + 1;
-        } else {
-            return 1;
-        }
-    }
-
-    saveStorage(): void {
-        const moviesJSON: string = JSON.stringify(this.movies) as string;
-
-        localStorage.setItem('movies', moviesJSON);
+    //Agregar películas al array movies
+    setMovies(movie: Movie) {
+        //Agregando nueva información al array movies
+        this.movies.push(movie);
+        //Actualizando el local storage
+        this.addStorage(this.movies);
     }
 }
