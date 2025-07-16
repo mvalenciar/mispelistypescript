@@ -11,7 +11,7 @@ export default class Storage {
         } else {
             this.movies = [];
         }
-        console.log(this.movies);
+        //console.log(this.movies);
     }
 
     //Guardar películas en el storage
@@ -29,5 +29,9 @@ export default class Storage {
         this.movies.push(movie);
         //Actualizando el local storage
         this.addStorage(this.movies);
+    }
+
+    getMovies(): Movie[] {
+        return this.movies;
     }
 }
