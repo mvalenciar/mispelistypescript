@@ -15,9 +15,10 @@ export default class APP {
 
     load(): void {
         //Guardar Películas
+        this.addModule.saveMovie();
 
         //Listar Películas
-        this.listModule.printMovies(this.storageModule.getMovies());
+        this.listModule.printAllMovies(this.storageModule.getMovies());
         console.log('Inicio aplicación películas');
     }
 }

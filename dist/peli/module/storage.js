@@ -26,4 +26,14 @@ export default class Storage {
     getMovies() {
         return this.movies;
     }
+    setIdMovie() {
+        let movies_stored = JSON.parse(localStorage.getItem('movies'));
+        if (movies_stored != null) {
+            let index_movies_stored = movies_stored.length - 1;
+            return movies_stored[index_movies_stored].id + 1;
+        }
+        else {
+            return 1;
+        }
+    }
 }

@@ -23,12 +23,19 @@ export default class List {
                 </article>`;
     }
 
-    printMovies(movies: Movie[]) {
+    printAllMovies(movies: Movie[]) {
         movies = this.movies_stored;
         movies.forEach((movie) => {
             if (this.sectionPrintMovies instanceof HTMLElement) {
                 this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
             }
         });
+    }
+
+    printNewMovie(movie: Movie) {
+        this.storageModule.setMovies(movie);
+        if (this.sectionPrintMovies instanceof HTMLElement) {
+            this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
+        }
     }
 }

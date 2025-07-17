@@ -15,12 +15,18 @@ export default class List {
                     </div>
                 </article>`;
     }
-    printMovies(movies) {
+    printAllMovies(movies) {
         movies = this.movies_stored;
         movies.forEach((movie) => {
             if (this.sectionPrintMovies instanceof HTMLElement) {
                 this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
             }
         });
+    }
+    printNewMovie(movie) {
+        this.storageModule.setMovies(movie);
+        if (this.sectionPrintMovies instanceof HTMLElement) {
+            this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
+        }
     }
 }

@@ -24,7 +24,7 @@ export default class Storage {
     }
 
     //Agregar películas al array movies
-    setMovies(movie: Movie) {
+    setMovies(movie: Movie): void {
         //Agregando nueva información al array movies
         this.movies.push(movie);
         //Actualizando el local storage
@@ -33,5 +33,18 @@ export default class Storage {
 
     getMovies(): Movie[] {
         return this.movies;
+    }
+
+    setIdMovie(): number {
+        let movies_stored: Movie[] = JSON.parse(
+            localStorage.getItem('movies') as string
+        );
+
+        if (movies_stored != null) {
+            let index_movies_stored = movies_stored.length - 1;
+            return movies_stored[index_movies_stored].id + 1;
+        } else {
+            return 1;
+        }
     }
 }
