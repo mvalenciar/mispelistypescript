@@ -1,10 +1,12 @@
 import Storage from './storage.js';
+import deleteMovie from './delete.js';
 export default class List {
     constructor() {
         this.storageModule = new Storage();
         this.movies_stored = this.storageModule.getMovies();
         this.sectionPrintMovies = document.querySelector('#movies');
     }
+    //Template estructura html de la card de las películas.
     movieTemplate(movie) {
         return `<article id="movie-${movie.id}" class="movie">
                     <h3 class="movie__title">${movie.title}</h3>
@@ -15,18 +17,22 @@ export default class List {
                     </div>
                 </article>`;
     }
+    //Método encargado de imprimir todas las películas al cargar la página
     printAllMovies(movies) {
         movies = this.movies_stored;
         movies.forEach((movie) => {
             if (this.sectionPrintMovies instanceof HTMLElement) {
                 this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
+                deleteMovie();
             }
         });
     }
+    //Método encargado de imprimir una película nueva.
     printNewMovie(movie) {
         this.storageModule.setMovies(movie);
         if (this.sectionPrintMovies instanceof HTMLElement) {
             this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
+            deleteMovie();
         }
     }
 }

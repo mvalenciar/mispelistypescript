@@ -28,12 +28,13 @@ export default class Storage {
     }
     setIdMovie() {
         let movies_stored = JSON.parse(localStorage.getItem('movies'));
-        if (movies_stored != null) {
-            let index_movies_stored = movies_stored.length - 1;
-            return movies_stored[index_movies_stored].id + 1;
+        //console.log(movies_stored);
+        if (movies_stored === null || movies_stored.length === 0) {
+            return 1;
         }
         else {
-            return 1;
+            let index_movies_stored = movies_stored.length - 1;
+            return movies_stored[index_movies_stored].id + 1;
         }
     }
 }

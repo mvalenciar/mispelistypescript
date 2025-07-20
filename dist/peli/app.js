@@ -13,5 +13,6 @@ export default class APP {
         //Listar Películas
         this.listModule.printAllMovies(this.storageModule.getMovies());
         console.log('Inicio aplicación películas');
+        //Eliminar Películas
     }
 }

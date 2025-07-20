@@ -1,6 +1,7 @@
 import Storage from './module/storage.js';
 import Add from './module/add.js';
 import List from './module/listmovies.js';
+import deleteMovie from './module/delete.js';
 
 export default class APP {
     private storageModule: Storage;
@@ -20,5 +21,7 @@ export default class APP {
         //Listar Películas
         this.listModule.printAllMovies(this.storageModule.getMovies());
         console.log('Inicio aplicación películas');
+
+        //Eliminar Películas
     }
 }

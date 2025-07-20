@@ -40,11 +40,13 @@ export default class Storage {
             localStorage.getItem('movies') as string
         );
 
-        if (movies_stored != null) {
+        //console.log(movies_stored);
+
+        if (movies_stored === null || movies_stored.length === 0) {
+            return 1;
+        } else {
             let index_movies_stored = movies_stored.length - 1;
             return movies_stored[index_movies_stored].id + 1;
-        } else {
-            return 1;
         }
     }
 }
