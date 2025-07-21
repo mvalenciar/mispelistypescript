@@ -1,6 +1,7 @@
 import { Movie } from './types.js';
 import Storage from './storage.js';
 import deleteMovie from './delete.js';
+import editMovie from './edit.js';
 
 export default class List {
     private storageModule: Storage;
@@ -33,6 +34,7 @@ export default class List {
                 this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
 
                 deleteMovie();
+                editMovie();
             }
         });
     }

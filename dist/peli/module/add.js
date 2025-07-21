@@ -1,5 +1,7 @@
 import List from './listmovies.js';
 import Storage from './storage.js';
+import deleteMovie from './delete.js';
+import editMovie from './edit.js';
 export default class Add {
     constructor() {
         //Instancia List para usar sus funciones
@@ -28,6 +30,8 @@ export default class Add {
                     };
                     //Se llama el método encargado de imprimir la nueva pelicula en el DOM
                     this.listModule.printNewMovie(newMovie);
+                    deleteMovie();
+                    editMovie();
                 }
             });
         }

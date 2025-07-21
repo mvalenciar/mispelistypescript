@@ -1,5 +1,6 @@
 import Storage from './storage.js';
 import deleteMovie from './delete.js';
+import editMovie from './edit.js';
 export default class List {
     constructor() {
         this.storageModule = new Storage();
@@ -24,6 +25,7 @@ export default class List {
             if (this.sectionPrintMovies instanceof HTMLElement) {
                 this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
                 deleteMovie();
+                editMovie();
             }
         });
     }

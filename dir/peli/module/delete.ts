@@ -11,7 +11,7 @@ export default function deleteMovie(): void {
         localStorage.getItem('movies') as string
     );
 
-    movies_stored.forEach((movie) => {
+    movies_stored.forEach((movie, index) => {
         //Se instancia elementos DOM del form para editar y eliminar películas
         let printed_movie: HTMLElement | null = document.querySelector(
             `#movie-` + movie.id
@@ -25,13 +25,14 @@ export default function deleteMovie(): void {
                 //Se agregan películas array de nuevas películas
                 let new_movies_stored: Movie[] = movies_stored;
                 //Se elimina la película encontrando su index con ayuda del id
-                new_movies_stored.splice(movie.id - 1, 1);
+                new_movies_stored.splice(index, 1);
                 let JSON_new_movies_stored: string =
                     JSON.stringify(new_movies_stored);
-
+                console.log(JSON_new_movies_stored + '-' + index);
                 localStorage.setItem('movies', JSON_new_movies_stored);
                 if (printed_movie instanceof HTMLElement) {
                     printed_movie.remove();
+                    location.reload();
                 }
             });
         }
