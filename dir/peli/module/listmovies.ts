@@ -27,7 +27,7 @@ export default class List {
     }
 
     //Método encargado de imprimir todas las películas al cargar la página
-    printAllMovies(movies: Movie[]) {
+    printAllMovies(movies: Movie[]): void {
         movies = this.movies_stored;
         movies.forEach((movie) => {
             if (this.sectionPrintMovies instanceof HTMLElement) {
@@ -40,11 +40,23 @@ export default class List {
     }
 
     //Método encargado de imprimir una película nueva.
-    printNewMovie(movie: Movie) {
+    printNewMovie(movie: Movie): void {
         this.storageModule.setMovies(movie);
         if (this.sectionPrintMovies instanceof HTMLElement) {
             this.sectionPrintMovies.innerHTML += this.movieTemplate(movie);
             deleteMovie();
+        }
+    }
+
+    //Método encargado de imprimir la película buscada
+    printFoundMovie(movie_available: Movie[]): void {
+        if (this.sectionPrintMovies instanceof HTMLElement) {
+            movie_available.forEach((movie) => {
+                if (this.sectionPrintMovies instanceof HTMLElement) {
+                    this.sectionPrintMovies.innerHTML =
+                        this.movieTemplate(movie);
+                }
+            });
         }
     }
 }

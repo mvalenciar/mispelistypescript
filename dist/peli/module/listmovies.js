@@ -37,4 +37,15 @@ export default class List {
             deleteMovie();
         }
     }
+    //Método encargado de imprimir la película buscada
+    printFoundMovie(movie_available) {
+        if (this.sectionPrintMovies instanceof HTMLElement) {
+            movie_available.forEach((movie) => {
+                if (this.sectionPrintMovies instanceof HTMLElement) {
+                    this.sectionPrintMovies.innerHTML =
+                        this.movieTemplate(movie);
+                }
+            });
+        }
+    }
 }

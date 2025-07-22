@@ -39,7 +39,7 @@ export default class Add {
                         title: this.input_movie_title.value,
                         url: this.input_movie_url.value,
                     };
-                    //Se llama el método encargado de imprimir la nueva pelicula en el DOM
+                    //Se llama el método encargado de imprimir la nueva película en el DOM
                     this.listModule.printNewMovie(newMovie);
                     deleteMovie();
                     editMovie();
